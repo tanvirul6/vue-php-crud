@@ -1,0 +1,181 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    font-family: segoe ui;
+}
+
+.container {
+    width: 550px;
+    height: auto;
+    margin: 100px auto;
+}
+
+.content {
+    padding: 30px 0 50px;
+}
+
+.txt-center {
+    text-align: center;
+}
+
+.header {
+    overflow: hidden;
+}
+
+.header h2 {
+    float: left;
+}
+
+.header button {
+    float: right;
+}
+
+.btn {
+    font-size: 14px;
+    padding: 8px 16px;
+    border-radius: 3px;
+    cursor: pointer;
+    border: 1px solid transparent;
+    color: #fff;
+    background: #2568EF;
+    transition: all .1s;
+    font-weight: bold;
+    line-height: 1.1;
+    margin-right: 5px;
+}
+
+.btn:hover {
+    background: rgba(37,104,239, 0.1);
+    color: #2568EF;
+    border: 1px solid #2568EF;
+}
+
+.edit {
+    background-color: rgba(40, 167, 69, 0.1);
+    color: #28a745;
+    margin-right: 5px;
+}
+
+.edit:hover {
+    background: #28a745;
+    color: #ffffff;
+    border-color: transparent;
+}
+
+.delete {
+    color: #FF564F;
+    background: rgba(255,86,79, 0.1);
+}
+
+.delete:hover {
+    background: #FF564F;
+    color: #ffffff;
+    border-color: transparent;
+}
+
+table {
+    width: 100%;
+    box-sizing: border-box;
+    border-radius: 3px;
+    box-shadow: 0px 10px 20px rgba(0, 0, 0, .1);
+}
+
+tbody {
+    font-size: 90%;
+}
+
+tr:nth-child(even) {
+    background-color: #f8f6ff;
+}
+
+th,
+td {
+    padding: 12px 15px;
+}
+
+th {
+    border-bottom: 1px solid #eee;
+    background: #f1f1f1;
+}
+
+tr {
+    transition: all .1s;
+}
+
+tbody tr:hover {
+    background-color: #f1f1f1;
+}
+
+td:first-child,
+td:last-child {
+    text-align: center;
+}
+
+td:last-child {
+    padding: 0;
+}
+
+tbody tr td a {
+    display: inline-block;
+    padding: 5px 10px;
+    text-decoration: none;
+    line-height: 1.1;
+    font-size: 12px;
+    border-radius: 3px;
+    transition: all .1s;
+}
+
+input {
+    display: block;
+    height: auto;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    margin-bottom: 20px;
+    padding: 10px 15px;
+    color: #444;
+    font-size: 15px;
+    line-height: 1;
+    width: 300px;
+}
+
+label {
+    font-size: 90%;
+    margin-bottom: 5px;
+    display: block;
+    line-height: 1;
+}
+
+.popup {
+    width: 450px;
+    height: auto;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    background: #fff;
+    padding: 50px 60px;
+    border-radius: 3px;
+    margin: 100px auto;
+    box-shadow: 0px 10px 50px rgba(0, 0, 0, .2);
+}
+
+.popup h3 {
+    font-size: 22px;
+    margin-bottom: 20px;
+}
+.popup p {
+    font-size: 110%;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+.footer p {
+    font-size: 90%;
+}
+
+.footer p span {
+    color: red;
+}
