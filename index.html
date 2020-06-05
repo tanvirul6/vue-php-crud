@@ -16,7 +16,7 @@
 
         <div class="header">
             <h2>Contact List Book</h2>
-            <button class="btn">Add New</button>
+            <button class="btn" @click="showAddOnClink">Add New</button>
         </div>
 
         <div class="content">
@@ -36,8 +36,8 @@
                     <td>Tanvirul Haque</td>
                     <td>01646785958</td>
                     <td>
-                        <a href="#" class="edit">Edit</a>
-                        <a href="#" class="delete">Delete</a>
+                        <a href="#" class="edit" @click="showEditOnClink">Edit</a>
+                        <a href="#" class="delete" @click="showDeleteOnClink">Delete</a>
                     </td>
                 </tr>
                 <tr>
@@ -68,7 +68,7 @@
 
     </div>
 
-    <div class="popup addnew-popup">
+    <div class="popup addnew-popup" v-if="showAddPopup">
         <h3>Add New Contact</h3>
         <form action="">
             <label for="name">Name</label>
@@ -77,12 +77,12 @@
             <label for="phone">Phone</label>
             <input type="number" id="phone">
 
-            <button class="btn delete">Cancel</button>
+            <button class="btn delete" @click="hideAddOnClink">Cancel</button>
             <button class="btn">Add new</button>
         </form>
     </div>
 
-    <div class="popup edit-popup">
+    <div class="popup edit-popup" v-if="showEditPopup">
         <h3>Update Contact</h3>
         <form action="">
             <label for="name">Name</label>
@@ -90,14 +90,15 @@
 
             <label for="phone">Phone</label>
             <input type="number" id="phone">
-            <button class="btn delete">Cancel</button>
+
+            <button class="btn delete" @click="hideEditOnClink">Cancel</button>
             <button class="btn">Update</button>
         </form>
     </div>
 
-    <div class="popup delete-popup">
+    <div class="popup delete-popup" v-if="showDeletePopup">
         <p>Do you want to delete?</p>
-        <button class="btn delete">No</button>
+        <button class="btn delete" @click="hideDeleteOnClink">No</button>
         <button class="btn edit">Yes</button>
     </div>
 
