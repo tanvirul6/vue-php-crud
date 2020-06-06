@@ -12,6 +12,10 @@
 <body>
 
 <div id="app">
+    <div class="loading" v-if="loading">
+        <p>Loading...</p>
+    </div>
+
     <div class="container">
 
         <div class="header">
@@ -31,31 +35,13 @@
                 </thead>
 
                 <tbody>
-                <tr>
-                    <td>1</td>
-                    <td>Tanvirul Haque</td>
-                    <td>01646785958</td>
+                <tr v-for="contact in contacts">
+                    <td>{{contact.id}}</td>
+                    <td>{{contact.name}}</td>
+                    <td>{{contact.phone}}</td>
                     <td>
-                        <a href="#" class="edit" @click="showEditOnClink">Edit</a>
-                        <a href="#" class="delete" @click="showDeleteOnClink">Delete</a>
-                    </td>
-                </tr>
-                <tr>
-                    <td>2</td>
-                    <td>Jacob</td>
-                    <td>01768845878</td>
-                    <td>
-                        <a href="#" class="edit">Edit</a>
-                        <a href="#" class="delete">Delete</a>
-                    </td>
-                </tr>
-                <tr>
-                    <td>3</td>
-                    <td>Larry</td>
-                    <td>01985478558</td>
-                    <td>
-                        <a href="#" class="edit">Edit</a>
-                        <a href="#" class="delete">Delete</a>
+                        <a href="#" class="edit" @click="showEditOnClink(); selectContact(contact)">Edit</a>
+                        <a href="#" class="delete" @click="showDeleteOnClink(); selectContact(contact)">Delete</a>
                     </td>
                 </tr>
                 </tbody>
@@ -70,41 +56,40 @@
 
     <div class="popup addnew-popup" v-if="showAddPopup">
         <h3>Add New Contact</h3>
-        <form action="">
-            <label for="name">Name</label>
-            <input type="text" id="name">
+        <label for="name">Name</label>
+        <input type="text" id="name" v-model="newContact.name">
 
-            <label for="phone">Phone</label>
-            <input type="number" id="phone">
+        <label for="phone">Phone</label>
+        <input type="number" id="phone" v-model="newContact.phone">
 
-            <button class="btn delete" @click="hideAddOnClink">Cancel</button>
-            <button class="btn">Add new</button>
-        </form>
+        <button class="btn delete" @click="hideAddOnClink">Cancel</button>
+        <button class="btn" @click="hideAddOnClink(); addNewContact()">Add new</button>
     </div>
 
     <div class="popup edit-popup" v-if="showEditPopup">
         <h3>Update Contact</h3>
-        <form action="">
+        <form @submit.prevent>
             <label for="name">Name</label>
-            <input type="text" id="name">
+            <input type="text" id="name" v-model="selectedContact.name">
 
             <label for="phone">Phone</label>
-            <input type="number" id="phone">
+            <input type="number" id="phone" v-model="selectedContact.phone">
 
             <button class="btn delete" @click="hideEditOnClink">Cancel</button>
-            <button class="btn">Update</button>
+            <button class="btn" @click="hideEditOnClink(); editContact()">Update</button>
         </form>
     </div>
 
     <div class="popup delete-popup" v-if="showDeletePopup">
-        <p>Do you want to delete?</p>
-        <button class="btn delete" @click="hideDeleteOnClink">No</button>
-        <button class="btn edit">Yes</button>
+        <p>Do you want to delete <i>"{{selectedContact.name}}"</i>?</p>
+        <button class="btn delete" @click="hideDeleteOnClink(); deleteContact()">Yes</button>
+        <button class="btn edit" @click="hideDeleteOnClink()">No</button>
     </div>
 
 </div>
 
 <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.19.2/axios.min.js"></script>
 <script src="assets/js/scripts.js"></script>
 </body>
 </html>
